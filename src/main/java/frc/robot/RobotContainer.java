@@ -120,7 +120,7 @@ public class RobotContainer
    */
   public Command getAutonomousCommand()
   {
-      return new PathPlannerAuto("paths/nate_test_pat_editied");
+      return new PathPlannerAuto("autos/3 note auto");
   }
 
   public void setDriveMode()

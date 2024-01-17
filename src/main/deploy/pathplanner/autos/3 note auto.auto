@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.4014420821634435,
-      "y": 5.491353685410074
+      "x": 1.3921973789893525,
+      "y": 5.574556013976893
     },
     "rotation": 0
   },
@@ -14,13 +14,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "speaker to ring 1"
+            "pathName": "1"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "ring 1 to speaker"
+            "pathName": "2"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of 2"
           }
         }
       ]
