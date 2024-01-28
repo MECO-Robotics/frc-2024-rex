@@ -16,12 +16,12 @@
     },
     {
       "anchor": {
-        "x": 2.7049452297102787,
-        "y": 6.841080348827365
+        "x": 2.8066369646252807,
+        "y": 6.915037974220092
       },
       "prevControl": {
-        "x": 2.3536465090948195,
-        "y": 6.443558112341451
+        "x": 2.4553382440098215,
+        "y": 6.517515737734178
       },
       "nextControl": null,
       "isLocked": false,
@@ -55,7 +55,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "3 note auto close files",
   "previewStartingState": {
     "rotation": 0,
     "velocity": 0

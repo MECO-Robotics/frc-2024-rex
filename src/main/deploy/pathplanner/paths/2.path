@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.702490801234176,
-        "y": 6.833576664343535
+        "x": 2.7881475582770983,
+        "y": 6.896548567871911
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.829654902555208,
-        "y": 8.57908454555648
+        "x": 1.290505644074351,
+        "y": 6.389938833931724
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.1671803884148306,
-        "y": 5.528332498106438
+        "x": 2.847419673562883,
+        "y": 5.466578622286325
       },
       "prevControl": {
-        "x": 6.467539421565334,
-        "y": 6.101504094900083
+        "x": 1.1685815771479515,
+        "y": 4.013311283319214
       },
       "nextControl": null,
       "isLocked": false,
@@ -32,7 +32,7 @@
   "constraintZones": [
     {
       "name": "New Constraints Zone",
-      "minWaypointRelativePos": 0.0,
+      "minWaypointRelativePos": 0,
       "maxWaypointRelativePos": 0,
       "constraints": {
         "maxVelocity": 3.0,
@@ -51,13 +51,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -176.26860300083962,
+    "rotation": 49.635463426902675,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "3 note auto close files",
   "previewStartingState": {
-    "rotation": 49.9459665471041,
+    "rotation": 48.136358368332644,
     "velocity": 0
   },
   "useDefaultConstraints": false
