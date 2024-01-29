@@ -6,8 +6,10 @@ package frc.robot;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
@@ -33,6 +35,9 @@ import com.pathplanner.lib.commands.PathPlannerAuto;
 public class RobotContainer
 {
 
+  private final PowerDistribution revPDH = new PowerDistribution(1, ModuleType.kRev);
+  
+
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
                                                                          "swerve/neo"));
@@ -48,6 +53,7 @@ public class RobotContainer
    */
   public RobotContainer()
   {
+    revPDH.setSwitchableChannel(true);
     // Configure the trigger bindings
     configureBindings();
     
