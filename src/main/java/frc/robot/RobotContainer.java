@@ -128,7 +128,6 @@ public class RobotContainer
   public Command getAutonomousCommand()
   {
       return new PathPlannerAuto("3 note auto");
-      //return new PathPlannerAuto("1 note auto far");
   }
 
   public void setDriveMode()
