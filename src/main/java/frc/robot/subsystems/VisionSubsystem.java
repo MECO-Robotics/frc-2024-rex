@@ -27,4 +27,21 @@ public class VisionSubsystem extends SubsystemBase {
         return x;
     }
 
+    public double getArea() {
+        
+        NetworkTableEntry ta = limelightTable.getEntry("ta");
+
+        // read values periodically
+        double area = ta.getDouble(0.0);
+
+        // post to smart dashboard periodically
+        SmartDashboard.putNumber("Limelight AREA", area);
+
+        return area;
+    }
+
+    public void periodic() {
+        getArea();
+    }
+
 }
