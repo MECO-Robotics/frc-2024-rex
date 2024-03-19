@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants.LED;
 
 public class LEDSubsystem extends SubsystemBase {
@@ -26,35 +27,42 @@ public class LEDSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     Color color = Color.kBlack;
-    if (DriverStation.isEnabled() && DriverStation.getAlliance().isPresent()) {
-      
-      
-      // Alliance ally = DriverStation.getAlliance().get();
+    int t = 0;
+    if (DriverStation.isTeleopEnabled() && DriverStation.getAlliance().isPresent()) {
 
-      // if (ally == Alliance.Red) {
-      //   color = Color.kRed;
-      // } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
-      //   color = Color.kBlue;
-      // }
-      // for (var i = 0; i < m_ledBuffer.getLength(); i++) {
-      //   m_ledBuffer.setLED(i, color);
-      // }
+      Alliance ally = DriverStation.getAlliance().get();
 
-      // setLEDs();
-    // } else  if (DriverStation.isAutonomousEnabled() && DriverStation.getAlliance().isPresent()) {
+      if (ally == Alliance.Red) {
+        color = Color.kRed;
+      } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
+        color = Color.kBlue;
+      }
+      for (var i = 0; i < m_ledBuffer.getLength(); i++) {
+        m_ledBuffer.setLED(i, color);
+      }
 
+      setLEDs();
+    } else if (DriverStation.isAutonomousEnabled() && DriverStation.getAlliance().isPresent()) {
+      Alliance ally = DriverStation.getAlliance().get();
 
+      if (ally == Alliance.Red) {
+        color = Color.kRed;
+      } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
+        color = Color.kBlue;
+      }
+      for (var i = 0; i < m_ledBuffer.getLength(); i++) {
+        m_ledBuffer.setLED(i, color);
+      }
 
-    // } else if (DriverStation.isEnabled() && DriverStation.getAlliance().isPresent() /*&& Indexingcommand whatever */) {
-     chaserIndex(true);
+      setLEDs();
+    } else if (DriverStation.isEnabled() && DriverStation.getAlliance().isPresent() /* && Indexingcommand whatever */) {
+      chaserIndex(true);
 
     } else {
       rainbow();
     }
 
   }
-
-
 
   public void rainbow() {
     // For every pixel
@@ -72,40 +80,35 @@ public class LEDSubsystem extends SubsystemBase {
     m_led.setData(m_ledBuffer);
   }
 
-
-
   /**
    * Moves alliance colored chaser up from bottom on both sides
    */
-public void chaserIndex(boolean status) {
-  int numLights = 57;
-  int numChaseOffOnPerPeriod = 3;
-  int chaseLength = 5;
-  int numIterations = numLights/numChaseOffOnPerPeriod;
+  public void chaserIndex(boolean status) {
+    int numLights = 57;
+    int numChaseOffOnPerPeriod = 3;
+    int chaseLength = 5;
+    int numIterations = numLights / numChaseOffOnPerPeriod;
 
-  if (status) {
+    if (status) {
 
-    for(int i = 0; i < m_ledBuffer.getLength(); i++){
-      m_ledBuffer.setLED(i, Color.kBlack);
+      for (int i = 0; i < m_ledBuffer.getLength(); i++) {
+        m_ledBuffer.setLED(i, Color.kBlack);
+      }
+
+      for (int i = 0; i < chaseLength; i++) {
+        int position1 = chaserLocation * numChaseOffOnPerPeriod + i;
+        m_ledBuffer.setLED(position1, Color.kWhite);
+        int position2 = m_ledBuffer.getLength() - 1 + (-chaserLocation) * numChaseOffOnPerPeriod - i;
+        m_ledBuffer.setLED(position2, Color.kWhite);
+      }
+
+      chaserLocation = (chaserLocation + 1) % numIterations;
+
     }
 
-    for(int i = 0; i < chaseLength; i++){
-      int position1 = chaserLocation*numChaseOffOnPerPeriod + i;
-      m_ledBuffer.setLED(position1, Color.kWhite);
-      int position2 = m_ledBuffer.getLength() -1 + (-chaserLocation)*numChaseOffOnPerPeriod - i;
-      m_ledBuffer.setLED(position2, Color.kWhite);
-    }
-
-    chaserLocation = (chaserLocation + 1)%numIterations;
+    m_led.setData(m_ledBuffer);
 
   }
-
-  m_led.setData(m_ledBuffer);
-
-}
-
-
-
 
   private void setLEDs() {
 
