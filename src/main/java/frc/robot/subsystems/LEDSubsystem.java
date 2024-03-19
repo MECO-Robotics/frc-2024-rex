@@ -16,6 +16,7 @@ public class LEDSubsystem extends SubsystemBase {
   private final AddressableLEDBuffer m_ledBuffer = new AddressableLEDBuffer(LED.BUFFERSIZE);
   private int m_rainbowFirstPixelHue;
   private int chaserLocation = 0;
+  private int increment = 0;
 
   public LEDSubsystem() {
 
@@ -27,7 +28,6 @@ public class LEDSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     Color color = Color.kBlack;
-    int t = 0;
     if (DriverStation.isTeleopEnabled() && DriverStation.getAlliance().isPresent()) {
 
       Alliance ally = DriverStation.getAlliance().get();
@@ -43,18 +43,38 @@ public class LEDSubsystem extends SubsystemBase {
 
       setLEDs();
     } else if (DriverStation.isAutonomousEnabled() && DriverStation.getAlliance().isPresent()) {
+
+      for (var i = 0; i < m_ledBuffer.getLength(); i++) {
+        m_ledBuffer.setLED(i, Color.kBlack);
+      }
+
       Alliance ally = DriverStation.getAlliance().get();
+      
 
       if (ally == Alliance.Red) {
         color = Color.kRed;
       } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
         color = Color.kBlue;
       }
-      for (var i = 0; i < m_ledBuffer.getLength(); i++) {
-        m_ledBuffer.setLED(i, color);
+
+      increment++;
+
+      if (increment < 6) {
+        for (var i = 0; i < m_ledBuffer.getLength(); i++) {
+          m_ledBuffer.setLED(i, color);
+        }
+      } else if(increment >= 6 && increment <= 12){
+
+        for (var i = 0; i < m_ledBuffer.getLength(); i++) {
+          m_ledBuffer.setLED(i, Color.kBlack);
+        }
+        
+      } else {
+        increment = 0;
       }
 
       setLEDs();
+
     } else if (DriverStation.isEnabled() && DriverStation.getAlliance().isPresent() /* && Indexingcommand whatever */) {
       chaserIndex(true);
 
