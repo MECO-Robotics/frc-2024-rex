@@ -33,9 +33,9 @@ public class LEDSubsystem extends SubsystemBase {
       Alliance ally = DriverStation.getAlliance().get();
 
       if (ally == Alliance.Red) {
-        color = Color.kRed;
+        color = new Color(16, 0, 0);
       } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
-        color = Color.kBlue;
+        color = new Color(0, 0, 16);
       }
       for (var i = 0; i < m_ledBuffer.getLength(); i++) {
         m_ledBuffer.setLED(i, color);
@@ -49,21 +49,20 @@ public class LEDSubsystem extends SubsystemBase {
       }
 
       Alliance ally = DriverStation.getAlliance().get();
-      
 
       if (ally == Alliance.Red) {
-        color = Color.kRed;
+        color = new Color(16, 0, 0);
       } else if (ally == Alliance.Blue) { // should only have pipelines 0 & 1
-        color = Color.kBlue;
+        color = new Color(0, 0, 16);
       }
 
       increment++;
 
-      if (increment < 6) {
+      if (increment < 12) {
         for (var i = 0; i < m_ledBuffer.getLength(); i++) {
           m_ledBuffer.setLED(i, color);
         }
-      } else if(increment >= 6 && increment <= 12){
+      } else if(increment >= 12 && increment <= 25){
 
         for (var i = 0; i < m_ledBuffer.getLength(); i++) {
           m_ledBuffer.setLED(i, Color.kBlack);
