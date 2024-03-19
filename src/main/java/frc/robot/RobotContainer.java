@@ -28,6 +28,7 @@ import frc.robot.commands.swervedrive.drivebase.AbsoluteDrive;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteFieldDrive;
 import frc.robot.commands.swervedrive.drivebase.AbsoluteDriveAdv;
 import frc.robot.commands.swervedrive.drivebase.TeleopDrive;
+import frc.robot.subsystems.LEDSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -51,6 +52,8 @@ public class RobotContainer {
                         "swerve/neo"));
 
         VisionSubsystem vision = new VisionSubsystem();
+
+        LEDSubsystem led = new LEDSubsystem ();
 
         // CommandJoystick rotationController = new CommandJoystick(1);
         // Replace with CommandPS4Controller or CommandJoystick if needed

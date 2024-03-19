@@ -51,4 +51,10 @@ public final class Constants
     public static final double RIGHT_X_DEADBAND = 0.01;
     public static final double TURN_CONSTANT = 0.75;
   }
+
+  public static class LED 
+  {
+    public static final int PWMPORT = 0;
+    public static final int BUFFERSIZE = 163;
+  }
 }
