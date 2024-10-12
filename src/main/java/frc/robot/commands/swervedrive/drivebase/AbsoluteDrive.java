@@ -22,10 +22,14 @@ import swervelib.math.SwerveMath;
 public class AbsoluteDrive extends Command
 {
 
-  private final SwerveSubsystem swerve;
-  private final DoubleSupplier  vX, vY;
-  private final DoubleSupplier headingHorizontal, headingVertical;
+  protected SwerveSubsystem swerve;
+  protected DoubleSupplier  vX, vY;
+  protected DoubleSupplier headingHorizontal, headingVertical;
   private boolean initRotation = false;
+
+  protected AbsoluteDrive() {
+
+  }
 
   /**
    * Used to drive a swerve robot in full field-centric mode.  vX and vY supply translation inputs, where x is
