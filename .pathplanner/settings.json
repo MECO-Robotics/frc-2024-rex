@@ -3,7 +3,8 @@
   "robotLength": 0.58,
   "holonomicMode": true,
   "pathFolders": [
-    "3 note auto close files"
+    "7 note auto close files",
+    "4 note close"
   ],
   "autoFolders": [],
   "defaultMaxVel": 3.0,

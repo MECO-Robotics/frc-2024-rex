@@ -3,25 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.8343710741434895,
-        "y": 5.46361957589147
+        "x": 6.726391110439878,
+        "y": 7.349539023402371
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.4163370117266336,
-        "y": 4.983938917740592
+        "x": 5.727963167638047,
+        "y": 7.312560210706008
       },
-      "isLocked": true,
+      "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.789996498907854,
-        "y": 4.0695183372385415
+        "x": 5.496845588285771,
+        "y": 6.720899207564182
       },
       "prevControl": {
-        "x": 0.41225884253164125,
-        "y": 3.605434237899172
+        "x": 5.459866775589407,
+        "y": 7.405007242446917
+      },
+      "nextControl": {
+        "x": 5.539900236948422,
+        "y": 5.924388207305137
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.754125219962152,
+        "y": 5.408151356843255
+      },
+      "prevControl": {
+        "x": 5.903612527945777,
+        "y": 5.417396060017345
       },
       "nextControl": null,
       "isLocked": false,
@@ -55,9 +71,9 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "3 note auto close files",
+  "folder": "7 note auto close files",
   "previewStartingState": {
-    "rotation": 48.136358368332644,
+    "rotation": 0.0,
     "velocity": 0
   },
   "useDefaultConstraints": false
