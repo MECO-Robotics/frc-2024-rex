@@ -12,7 +12,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import java.io.File;
 import java.io.IOException;
+
+import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
+import org.photonvision.PhotonCamera;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,10 +28,12 @@ public class Robot extends TimedRobot {
 
   private static Robot instance;
   private Command m_autonomousCommand;
-
   private RobotContainer m_robotContainer;
-
   private Timer disabledTimer;
+  private Vision vision;
+  private SwerveDrive drivetrain;
+  
+
 
   public Robot() {
     instance = this;
@@ -46,6 +51,10 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     for (int port = 5800; port <= 5807; port++) {
       PortForwarder.add(port, "limelight.local", port);
+    //camera = new PhotonCamera(kCameraName);
+    vision = new Vision();
+
+
     }
 
     // Instantiate our RobotContainer. This will perform all our button bindings,
