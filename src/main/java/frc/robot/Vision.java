@@ -24,7 +24,7 @@ import org.photonvision.targeting.PhotonTrackedTarget;
 public class Vision {
     private final PhotonCamera camera;
     private final PhotonPoseEstimator photonEstimator;
-    private Matrix<N3, N1> curStdDevs;
+    private Matrix<N3, N1> curStdDevs;  
 
     // Simulation
     private PhotonCameraSim cameraSim;
